@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ready Ready Motors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <!-- Header -->
+  <header class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-blue-600">Ready Ready Motors</h1>
+      <nav class="space-x-4">
+        <a href="#inventory" class="text-gray-700 hover:text-blue-600">Inventory</a>
+        <a href="#about" class="text-gray-700 hover:text-blue-600">About</a>
+        <a href="#contact" class="text-gray-700 hover:text-blue-600">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-blue-600 text-white text-center py-20">
+    <h2 class="text-4xl font-bold mb-4">Wholesale Cars. Ready When You Are.</h2>
+    <p class="text-lg mb-6">Trusted by dealers. Powered by experience. Inventory updated daily.</p>
+    <a href="#inventory" class="bg-white text-blue-600 font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition">
+      View Inventory
+    </a>
+  </section>
+
+  <!-- Inventory Section -->
+  <section id="inventory" class="py-16 px-4 max-w-7xl mx-auto">
+    <h3 class="text-3xl font-bold mb-8 text-center">Available Inventory</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Example Car -->
+      <div class="bg-white p-4 shadow rounded-lg">
+        <img src="https://via.placeholder.com/300x200" alt="Car 1" class="mb-4 w-full h-48 object-cover rounded">
+        <h4 class="text-xl font-semibold">2022 Toyota Camry</h4>
+        <p class="text-gray-600">Mileage: 20,000 | Price: $18,500</p>
+      </div>
+      <!-- Add more cars here -->
+      <div class="bg-white p-4 shadow rounded-lg">
+        <img src="https://via.placeholder.com/300x200" alt="Car 2" class="mb-4 w-full h-48 object-cover rounded">
+        <h4 class="text-xl font-semibold">2021 Ford F-150</h4>
+        <p class="text-gray-600">Mileage: 35,000 | Price: $25,000</p>
+      </div>
+      <div class="bg-white p-4 shadow rounded-lg">
+        <img src="https://via.placeholder.com/300x200" alt="Car 3" class="mb-4 w-full h-48 object-cover rounded">
+        <h4 class="text-xl font-semibold">2020 Honda Civic</h4>
+        <p class="text-gray-600">Mileage: 15,000 | Price: $16,000</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="bg-white py-16 px-4 text-center">
+    <h3 class="text-3xl font-bold mb-4">About Ready Ready Motors</h3>
+    <p class="max-w-2xl mx-auto text-gray-600 text-lg">
+      With over 15 years in the wholesale automotive business, Ready Ready Motors offers unbeatable prices,
+      quality inventory, and top-tier service to licensed dealers across the country.
+    </p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 px-4 bg-gray-200 text-center">
+    <h3 class="text-3xl font-bold mb-4">Get in Touch</h3>
+    <p class="mb-6 text-gray-700">Interested in our inventory or have a question? Reach out today.</p>
+    <form class="max-w-xl mx-auto space-y-4">
+      <input type="text" placeholder="Your Name" class="w-full px-4 py-2 rounded border border-gray-300" />
+      <input type="email" placeholder="Your Email" class="w-full px-4 py-2 rounded border border-gray-300" />
+      <textarea placeholder="Message" class="w-full px-4 py-2 rounded border border-gray-300"></textarea>
+      <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-6 text-center">
+    <p>&copy; 2025 Ready Ready Motors. All rights reserved.</p>
+  </footer>
+</body>
+</html>
