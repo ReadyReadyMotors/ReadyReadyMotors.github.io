@@ -1,0 +1,4 @@
+id,Title,Mileage,Price,Images_list
+101,2022 Toyota Camry,20000,18500,"['/images/101/pic1.png','/images/101/pic2.png']"
+102,2021 Ford F-150,35000,25000,"['/images/102/pic1.png','/images/102/pic2.png']"
+103,2020 Honda Civic,15000,16000,"['/images/103/pic1.png','/images/103/pic2.png']"
