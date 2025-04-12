@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ready Ready Motors</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -10,7 +10,10 @@
   <!-- Header -->
   <header class="bg-white shadow-md">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-blue-600">Ready Ready Motors</h1>
+      <div class="flex items-center space-x-3">
+        <img src="/images/logo.png" alt="Ready Ready Motors Logo" class="w-10 h-10 object-contain"/>
+        <h1 class="text-2xl font-bold text-blue-600">Ready Ready Motors</h1>
+      </div>
       <nav class="space-x-4">
         <a href="#inventory" class="text-gray-700 hover:text-blue-600">Inventory</a>
         <a href="#about" class="text-gray-700 hover:text-blue-600">About</a>
@@ -31,24 +34,8 @@
   <!-- Inventory Section -->
   <section id="inventory" class="py-16 px-4 max-w-7xl mx-auto">
     <h3 class="text-3xl font-bold mb-8 text-center">Available Inventory</h3>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <!-- Example Car -->
-      <div class="bg-white p-4 shadow rounded-lg">
-        <img src="https://via.placeholder.com/300x200" alt="Car 1" class="mb-4 w-full h-48 object-cover rounded">
-        <h4 class="text-xl font-semibold">2022 Toyota Camry</h4>
-        <p class="text-gray-600">Mileage: 20,000 | Price: $18,500</p>
-      </div>
-      <!-- Add more cars here -->
-      <div class="bg-white p-4 shadow rounded-lg">
-        <img src="https://via.placeholder.com/300x200" alt="Car 2" class="mb-4 w-full h-48 object-cover rounded">
-        <h4 class="text-xl font-semibold">2021 Ford F-150</h4>
-        <p class="text-gray-600">Mileage: 35,000 | Price: $25,000</p>
-      </div>
-      <div class="bg-white p-4 shadow rounded-lg">
-        <img src="https://via.placeholder.com/300x200" alt="Car 3" class="mb-4 w-full h-48 object-cover rounded">
-        <h4 class="text-xl font-semibold">2020 Honda Civic</h4>
-        <p class="text-gray-600">Mileage: 15,000 | Price: $16,000</p>
-      </div>
+    <div id="inventory-list" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Dynamic car cards will appear here -->
     </div>
   </section>
 
@@ -77,5 +64,41 @@
   <footer class="bg-gray-900 text-white py-6 text-center">
     <p>&copy; 2025 Ready Ready Motors. All rights reserved.</p>
   </footer>
+
+  <!-- Inventory Script -->
+  <script>
+    async function loadInventory() {
+      const response = await fetch('/files/inventory.csv');
+      const csvText = await response.text();
+      const rows = csvText.trim().split('\n');
+      const headers = rows[0].split(',');
+      const cars = rows.slice(1).map(row => {
+        const values = row.split(',');
+        const car = {};
+        headers.forEach((h, i) => car[h.trim()] = values[i]?.trim());
+        return car;
+      });
+
+      const container = document.getElementById('inventory-list');
+      container.innerHTML = '';
+
+      cars.forEach(car => {
+        const images = JSON.parse(car.Images_list.replace(/'/g, '"'));
+        const firstImage = images.length > 0 ? images[0] : 'https://via.placeholder.com/300x200';
+
+        const card = document.createElement('div');
+        card.className = 'bg-white p-4 shadow rounded-lg';
+
+        card.innerHTML = `
+          <img src="${firstImage}" alt="${car.Title}" class="mb-4 w-full h-48 object-cover rounded">
+          <h4 class="text-xl font-semibold">${car.Title}</h4>
+          <p class="text-gray-600">Mileage: ${car.Mileage} | Price: $${car.Price}</p>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', loadInventory);
+  </script>
 </body>
 </html>
