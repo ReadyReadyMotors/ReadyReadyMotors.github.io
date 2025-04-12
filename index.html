@@ -35,7 +35,7 @@
   <section id="inventory" class="py-16 px-4 max-w-7xl mx-auto">
     <h3 class="text-3xl font-bold mb-8 text-center">Available Inventory</h3>
     <div id="inventory-list" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <!-- Dynamic car cards will appear here -->
+      <!-- Car cards injected here -->
     </div>
   </section>
 
@@ -72,8 +72,11 @@
       const csvText = await response.text();
       const rows = csvText.trim().split('\n');
       const headers = rows[0].split(',');
+
       const cars = rows.slice(1).map(row => {
-        const values = row.split(',');
+        // Handle potential quoted fields
+        const regex = /(".*?"|[^",\s]+)(?=\s*,|\s*$)/g;
+        const values = row.match(regex).map(val => val.replace(/^"|"$/g, ''));
         const car = {};
         headers.forEach((h, i) => car[h.trim()] = values[i]?.trim());
         return car;
@@ -91,9 +94,11 @@
 
         card.innerHTML = `
           <img src="${firstImage}" alt="${car.Title}" class="mb-4 w-full h-48 object-cover rounded">
-          <h4 class="text-xl font-semibold">${car.Title}</h4>
-          <p class="text-gray-600">Mileage: ${car.Mileage} | Price: $${car.Price}</p>
+          <h4 class="text-xl font-semibold mb-1">${car.Title}</h4>
+          <p class="text-gray-600 text-sm mb-1">Mileage: ${car.Mileage} | Price: $${car.Price}</p>
+          <p class="text-gray-700 text-sm">${car.Details}</p>
         `;
+
         container.appendChild(card);
       });
     }
