@@ -84,7 +84,53 @@
   </footer>
 
   <!-- Inventory Script -->
-  <script>
+  async function loadInventory() {
+  try {
+    const response = await fetch('/files/inventory.json');
+    const cars = await response.json();
+
+    const container = document.getElementById('inventory-list');
+    container.innerHTML = '';
+
+    cars.forEach(car => {
+      const images = car.Images_list || [];
+
+      const card = document.createElement('div');
+      card.className = 'bg-white p-4 shadow rounded-lg';
+
+      // Create a container for images
+      const imageContainer = document.createElement('div');
+      imageContainer.className = 'mb-4 flex flex-wrap gap-2';
+
+      // Iterate over all images and create img elements
+      images.forEach(imgSrc => {
+        const img = document.createElement('img');
+        img.src = imgSrc;
+        img.alt = car.Title;
+        img.className = 'w-full h-48 object-cover rounded';
+        imageContainer.appendChild(img);
+      });
+
+      // Append image container and other car details to the card
+      card.appendChild(imageContainer);
+      card.innerHTML += `
+        <h4 class="text-xl font-semibold mb-1">${car.Title}</h4>
+        <p class="text-gray-600 text-sm mb-1">Mileage: ${car.Mileage} | Price: $${car.Price}</p>
+        <p class="text-gray-700 text-sm">${car.Details}</p>
+      `;
+
+      container.appendChild(card);
+    });
+  } catch (err) {
+    console.error('Failed to load inventory:', err);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadInventory);
+
+
+  
+<!--   <script>
     async function loadInventory() {
       try {
         const response = await fetch('/files/inventory.json');
@@ -114,7 +160,7 @@
       }
     }
 
-    document.addEventListener('DOMContentLoaded', loadInventory);
+    document.addEventListener('DOMContentLoaded', loadInventory); -->
   </script>
 </body>
 </html>
