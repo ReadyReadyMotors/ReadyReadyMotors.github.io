@@ -84,6 +84,7 @@
   </footer>
 
   <!-- Inventory Script -->
+ <script>
   async function loadInventory() {
   try {
     const response = await fetch('/files/inventory.json');
@@ -130,8 +131,8 @@ document.addEventListener('DOMContentLoaded', loadInventory);
 
 
   
-<!--   <script>
-    async function loadInventory() {
+/*
+async function loadInventory() {
       try {
         const response = await fetch('/files/inventory.json');
         const cars = await response.json();
@@ -160,7 +161,7 @@ document.addEventListener('DOMContentLoaded', loadInventory);
       }
     }
 
-    document.addEventListener('DOMContentLoaded', loadInventory); -->
+    document.addEventListener('DOMContentLoaded', loadInventory); */
   </script>
 </body>
 </html>
