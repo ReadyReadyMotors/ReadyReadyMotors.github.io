@@ -83,80 +83,85 @@
     <p>&copy; 2025 Ready Ready Motors. All rights reserved.</p>
   </footer>
 
-<!-- Inventory Script -->
-<script>
-  async function loadInventory() {
-    try {
-      const response = await fetch('/files/inventory.json');
-      const cars = await response.json();
-
-      const container = document.getElementById('inventory-list');
-      container.innerHTML = '';
-
-      cars.forEach(car => {
-        const images = car.Images_list || [];
-
-        const card = document.createElement('div');
-        card.className = 'bg-white p-4 shadow rounded-lg relative';
-
-        // === Carousel Section ===
-        const carousel = document.createElement('div');
-        carousel.className = 'relative mb-4';
-
-        const img = document.createElement('img');
-        img.src = images[0] || 'https://via.placeholder.com/300x200';
-        img.alt = car.Title;
-        img.className = 'w-full h-48 object-cover rounded';
-        carousel.appendChild(img);
-
-        const leftBtn = document.createElement('button');
-        leftBtn.innerHTML = '&#8592;';
-        leftBtn.className = 'absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-75 p-2 rounded-full shadow hover:bg-opacity-100';
-        carousel.appendChild(leftBtn);
-
-        const rightBtn = document.createElement('button');
-        rightBtn.innerHTML = '&#8594;';
-        rightBtn.className = 'absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-75 p-2 rounded-full shadow hover:bg-opacity-100';
-        carousel.appendChild(rightBtn);
-
-        // Track image index
-        let currentIndex = 0;
-        leftBtn.addEventListener('click', () => {
-          currentIndex = (currentIndex - 1 + images.length) % images.length;
-          img.src = images[currentIndex];
+  <!-- Inventory Script -->
+  <script>
+    async function loadInventory() {
+      try {
+        const response = await fetch('/files/inventory.json');
+        const cars = await response.json();
+  
+        const container = document.getElementById('inventory-list');
+        container.innerHTML = '';
+  
+        cars.forEach(car => {
+          const images = car.Images_list || [];
+  
+          const card = document.createElement('div');
+          card.className = 'bg-white p-4 shadow rounded-lg relative';
+  
+          // === Carousel ===
+          const carousel = document.createElement('div');
+          carousel.className = 'relative mb-4';
+  
+          const img = document.createElement('img');
+          img.src = images[0] || 'https://via.placeholder.com/300x200';
+          img.alt = car.Title;
+          img.className = 'w-full h-48 object-cover rounded';
+          carousel.appendChild(img);
+  
+          const leftBtn = document.createElement('button');
+          leftBtn.innerHTML = '&#8592;';
+          leftBtn.className = 'absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-75 p-2 rounded-full shadow hover:bg-opacity-100';
+  
+          const rightBtn = document.createElement('button');
+          rightBtn.innerHTML = '&#8594;';
+          rightBtn.className = 'absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-75 p-2 rounded-full shadow hover:bg-opacity-100';
+  
+          let currentIndex = 0;
+  
+          if (images.length > 1) {
+            leftBtn.addEventListener('click', () => {
+              currentIndex = (currentIndex - 1 + images.length) % images.length;
+              img.src = images[currentIndex];
+            });
+  
+            rightBtn.addEventListener('click', () => {
+              currentIndex = (currentIndex + 1) % images.length;
+              img.src = images[currentIndex];
+            });
+  
+            carousel.appendChild(leftBtn);
+            carousel.appendChild(rightBtn);
+          }
+  
+          // === Text Content ===
+          const title = document.createElement('h4');
+          title.className = 'text-xl font-semibold mb-1';
+          title.textContent = car.Title;
+  
+          const info = document.createElement('p');
+          info.className = 'text-gray-600 text-sm mb-1';
+          info.textContent = `Mileage: ${car.Mileage} | Price: $${car.Price}`;
+  
+          const details = document.createElement('p');
+          details.className = 'text-gray-700 text-sm';
+          details.textContent = car.Details;
+  
+          // Assemble card
+          card.appendChild(carousel);
+          card.appendChild(title);
+          card.appendChild(info);
+          card.appendChild(details);
+          container.appendChild(card);
         });
-        rightBtn.addEventListener('click', () => {
-          currentIndex = (currentIndex + 1) % images.length;
-          img.src = images[currentIndex];
-        });
-
-        // === Text Content Section ===
-        const title = document.createElement('h4');
-        title.className = 'text-xl font-semibold mb-1';
-        title.textContent = car.Title;
-
-        const info = document.createElement('p');
-        info.className = 'text-gray-600 text-sm mb-1';
-        info.textContent = `Mileage: ${car.Mileage} | Price: $${car.Price}`;
-
-        const details = document.createElement('p');
-        details.className = 'text-gray-700 text-sm';
-        details.textContent = car.Details;
-
-        // Assemble card
-        card.appendChild(carousel);
-        card.appendChild(title);
-        card.appendChild(info);
-        card.appendChild(details);
-        container.appendChild(card);
-      });
-    } catch (err) {
-      console.error('Failed to load inventory:', err);
+      } catch (err) {
+        console.error('Failed to load inventory:', err);
+      }
     }
-  }
+  
+    document.addEventListener('DOMContentLoaded', loadInventory);
+  </script>
 
-  document.addEventListener('DOMContentLoaded', loadInventory);
-</script>
 
 
 </body>
