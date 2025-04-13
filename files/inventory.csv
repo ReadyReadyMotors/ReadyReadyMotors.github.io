@@ -1,4 +1,7 @@
-id,Title,Price,Mileage,Details,Images_list
-101,Benz 奔驰 E300 AMG,15500,94000,"$15500 E300 AMG 2017 奔驰E300 AMG 价格15500 可私人#湾区二手车 #北美二手车 #湾区代步车 #加州二手车","['/images/cars/101_1.png']"
-102,2016 Jeep Compass Latitude,6900,140000,"预售：$6900 jeep 2016 Jeep Compass Latitude 跑了14w 质保半年#北美二手车 #湾区二手车 #加州二手车 #旧金山二手车#旧金山代步车","['/images/cars/102_1.png']"
-103,2017 Nissan Versa,6900,0,"便宜出 2017 nissan versa 换了新电瓶 全新刹车盘 刹车片 发动机 变速箱 质保一年 价格6900#北美二手车 #湾区二手车 #加州二手车 #旧金山二手车#湾区代步车","['/images/cars/103_1.png']"
+﻿id,Title,Mileage,Price,Details,Images_list
+101,2017 Mercedes-Benz 奔驰 E300 AMG,94000,15500,$15500 E300 AMG 2017 奔驰E300 AMG 价格15500 可私人 #湾区二手车 #北美二手车 #湾区代步车 #加州二手车,/images/cars/101_1.png
+102,2016 Jeep Compass Latitude,140000,6900,预售：$6900 jeep 2016 Jeep Compass Latitude 跑了14w 质保半年#北美二手车 #湾区二手车 #加州二手车 #旧金山二手车#旧金山代步车,/images/cars/102_1.png
+103,2017 Nissan Versa,0,6900,便宜出 2017 Nissan Versa 换了新电瓶 全新刹车盘 刹车片 发动机 变速箱 质保一年 价格6900 #北美二手车 #湾区二手车 #加州二手车 #旧金山二手车#湾区代步车,/images/cars/103_1.png
+104,2012 Nissan Versa 代步车 全款$5.9k 一手车 64kmile,64000,5900,2012 Nissan Versa 跑了64000mile 超级省油 clean title 一手车 批发价 全款5900#北美二手车 #湾区二手车 #加州二手车 #湾区代步车 #旧金山湾区 #旧金山二手车,"/images/cars/104_1.png,/images/cars/104_2.png,/images/cars/104_3.png"
+105,2015 本田雅阁 Honda Accord 跑了9w mile $13900,90000,13900,降价： 本田雅阁 $13900 2015 本田雅阁 跑了9w mile all clean 带质保 支持分期 #湾区二手车 #加州二手车 #北美二手车 #本田雅阁 #湾区代步车,"/images/cars/105_1.png,/images/cars/105_2.png,/images/cars/105_3.png,/images/cars/105_4.png"
+106,2016 Lexus RX $23999 开回家,73700,23999,2016 Lexus Rx 跑了73700mile 价格great deal：$23999 支持分期 #加州二手车 #湾区二手车 #北美二手车 #旧金山湾区,"/images/cars/106_1.png,/images/cars/106_2.png,/images/cars/106_3.png"
