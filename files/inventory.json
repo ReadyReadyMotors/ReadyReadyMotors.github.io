@@ -31,12 +31,37 @@
   },
   {
     "id": 104,
-    "Title": "12 Nissan Versa 代步车 全款$5.9k 一手车 64kmile",
+    "Title": "2012 Nissan Versa 代步车 全款$5.9k 一手车 64kmile",
     "Mileage": 64000,
     "Price": 5900,
     "Details": "2012 Nissan Versa 跑了64000mile 超级省油 clean title 一手车 批发价 全款5900#北美二手车 #湾区二手车 #加州二手车 #湾区代步车 #旧金山湾区 #旧金山二手车",
     "Images_list": [
       "/images/cars/104_1.png","/images/cars/104_2.png","/images/cars/104_3.png"
     ]
+  },
+  {
+    "id": 105,
+    "Title": "2015 本田雅阁 Honda Accord 跑了9w mile $13900",
+    "Mileage": 90000,
+    "Price": 13900,
+    "Details": "降价： 本田雅阁 $13900 2015 本田雅阁 跑了9w mile all clean 带质保 支持分期 #湾区二手车 #加州二手车 #北美二手车 #本田雅阁 #湾区代步车",
+    "Images_list": [
+      "/images/cars/105_1.png","/images/cars/105_2.png","/images/cars/105_3.png","/images/cars/105_4.png"
+    ]
+  },
+  {
+    "id": 106,
+    "Title": "2016 Lexus RX $23999 开回家",
+    "Mileage": 73700,
+    "Price": 23999,
+    "Details": "2016 Lexus Rx 跑了73700mile 价格great deal：$23999 支持分期 #加州二手车 #湾区二手车 #北美二手车 #旧金山湾区",
+    "Images_list": [
+      "/images/cars/106_1.png","/images/cars/106_2.png","/images/cars/106_3.png"
+    ]
   }
+
+
+
+
+  
 ]
