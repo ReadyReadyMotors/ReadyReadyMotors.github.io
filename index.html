@@ -83,7 +83,7 @@
     <p>&copy; 2025 Ready Ready Motors. All rights reserved.</p>
   </footer>
 
- <!-- Inventory Script -->
+<!-- Inventory Script -->
 <script>
   async function loadInventory() {
     try {
@@ -99,30 +99,27 @@
         const card = document.createElement('div');
         card.className = 'bg-white p-4 shadow rounded-lg relative';
 
-        // Create carousel container
+        // === Carousel Section ===
         const carousel = document.createElement('div');
         carousel.className = 'relative mb-4';
 
-        // Create main image element
         const img = document.createElement('img');
         img.src = images[0] || 'https://via.placeholder.com/300x200';
         img.alt = car.Title;
         img.className = 'w-full h-48 object-cover rounded';
         carousel.appendChild(img);
 
-        // Create left arrow
         const leftBtn = document.createElement('button');
         leftBtn.innerHTML = '&#8592;';
         leftBtn.className = 'absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-75 p-2 rounded-full shadow hover:bg-opacity-100';
         carousel.appendChild(leftBtn);
 
-        // Create right arrow
         const rightBtn = document.createElement('button');
         rightBtn.innerHTML = '&#8594;';
         rightBtn.className = 'absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-75 p-2 rounded-full shadow hover:bg-opacity-100';
         carousel.appendChild(rightBtn);
 
-        // Image index control
+        // Track image index
         let currentIndex = 0;
         leftBtn.addEventListener('click', () => {
           currentIndex = (currentIndex - 1 + images.length) % images.length;
@@ -133,14 +130,24 @@
           img.src = images[currentIndex];
         });
 
-        // Append carousel and details
-        card.appendChild(carousel);
-        card.innerHTML += `
-          <h4 class="text-xl font-semibold mb-1">${car.Title}</h4>
-          <p class="text-gray-600 text-sm mb-1">Mileage: ${car.Mileage} | Price: $${car.Price}</p>
-          <p class="text-gray-700 text-sm">${car.Details}</p>
-        `;
+        // === Text Content Section ===
+        const title = document.createElement('h4');
+        title.className = 'text-xl font-semibold mb-1';
+        title.textContent = car.Title;
 
+        const info = document.createElement('p');
+        info.className = 'text-gray-600 text-sm mb-1';
+        info.textContent = `Mileage: ${car.Mileage} | Price: $${car.Price}`;
+
+        const details = document.createElement('p');
+        details.className = 'text-gray-700 text-sm';
+        details.textContent = car.Details;
+
+        // Assemble card
+        card.appendChild(carousel);
+        card.appendChild(title);
+        card.appendChild(info);
+        card.appendChild(details);
         container.appendChild(card);
       });
     } catch (err) {
@@ -150,6 +157,7 @@
 
   document.addEventListener('DOMContentLoaded', loadInventory);
 </script>
+
 
 </body>
 </html>
